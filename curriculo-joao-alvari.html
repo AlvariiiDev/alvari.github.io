@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo - João Alvari</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="page">
+  <div class="card">
+    <div class="hd">
+      <h1>João Alvari Rodrigues da Silva</h1>
+      <div class="contacts">
+        <span class="ci">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#3a6090" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          alvaritrabalho@gmail.com
+        </span>
+        <span class="ci">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#3a6090" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (49) 98422-7819
+        </span>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sec-label">Objetivo</div>
+      <p class="obj-text">Estudante de ADS com foco em C#, desenvolvedor nas plataformas Bubble e Lovable, e experiência prática com C# através de treinamento na Questor.</p>
+    </div>
+    <div class="sec">
+      <div class="sec-label">Formação</div>
+      <div class="form-row">
+        <div class="dot-glow"></div>
+        <div>
+          <p>Análise e Desenvolvimento de Sistemas</p>
+          <span>Cursando</span>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sec-label">Experiência</div>
+      <div class="exp-list">
+        <div class="exp-row">
+          <div class="exp-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#4a7ab0" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div><div class="exp-title">Suporte de ERP</div><div class="exp-sub">Zada</div></div>
+        </div>
+        <div class="exp-row">
+          <div class="exp-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#4a7ab0" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div><div class="exp-title">Desenvolvedor</div><div class="exp-sub">Bubble · Lovable</div></div>
+        </div>
+        <div class="exp-row">
+          <div class="exp-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#4a7ab0" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <div><div class="exp-title">Treinamento em C#</div><div class="exp-sub">Questor</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sec-label">Habilidades</div>
+      <div class="skills">
+        <span class="pill">Lógica de Programação</span>
+        <span class="pill">Comunicação</span>
+        <span class="pill">Raciocínio Analítico</span>
+        <span class="pill">Paciência</span>
+        <span class="pill">Garra</span>
+        <span class="pill">C#</span>
+        <span class="pill">Bubble</span>
+        <span class="pill">Lovable</span>
+      </div>
+    </div>
+    <div class="foot">✦ &nbsp; João Alvari Rodrigues da Silva &nbsp; ✦</div>
+  </div>
+</div>
+<script>
+const canvas = document.getElementById('bg');
+const ctx = canvas.getContext('2d');
+let W, H;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  drawStatic();
+}
+
+function drawStatic() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, W, H);
+  const cx = W*0.5, cy = H*0.42;
+  for (let i = 0; i < 6; i++) {
+    const r = 300 + i*95;
+    const a = [0.05,0.035,0.025,0.018,0.012,0.007][i];
+    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+    grd.addColorStop(0, `rgba(155,175,255,${a})`);
+    grd.addColorStop(0.4, `rgba(110,135,215,${a*0.5})`);
+    grd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(-0.32);
+    ctx.scale(3.4, 1);
+    ctx.beginPath();
+    ctx.arc(0, 0, r, 0, Math.PI*2);
+    ctx.fillStyle = grd;
+    ctx.fill();
+    ctx.restore();
+  }
+  nebula(W*0.1,  H*0.15, 240, 'rgba(50,70,200,0.04)',   'rgba(25,45,150,0.015)');
+  nebula(W*0.88, H*0.8,  190, 'rgba(150,35,75,0.038)',  'rgba(90,15,45,0.012)');
+  nebula(W*0.75, H*0.28, 170, 'rgba(25,110,135,0.038)', 'rgba(10,70,95,0.012)');
+  nebula(W*0.3,  H*0.85, 150, 'rgba(80,30,150,0.03)',   'rgba(50,15,100,0.01)');
+}
+
+function nebula(x, y, r, c1, c2) {
+  const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+  g.addColorStop(0, c1);
+  g.addColorStop(0.55, c2);
+  g.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI*2);
+  ctx.fillStyle = g;
+  ctx.fill();
+}
+
+const stars = [];
+function initStars() {
+  stars.length = 0;
+  for (let i = 0; i < 950; i++) {
+    const t = Math.random();
+    const r = t < 0.68 ? Math.random()*0.55+0.15 : t < 0.92 ? Math.random()*0.75+0.65 : Math.random()*1.0+1.4;
+    const c = Math.random();
+    stars.push({
+      x: Math.random()*W, y: Math.random()*H, r,
+      baseAlpha: Math.random()*0.45+0.45,
+      speed: Math.random()*0.022+0.004,
+      phase: Math.random()*Math.PI*2,
+      color: c < 0.13 ? 'b' : c < 0.22 ? 'w' : 'n'
+    });
+  }
+}
+
+const shoots = [];
+let tick = 0;
+
+function spawnShoot() {
+  const ang = (26 + Math.random()*34) * Math.PI/180;
+  const spd = 10 + Math.random()*10;
+  shoots.push({
+    x: Math.random()*W*0.85,
+    y: Math.random()*H*0.5,
+    vx: Math.cos(ang)*spd,
+    vy: Math.sin(ang)*spd,
+    len: 90 + Math.random()*130,
+    life: 1,
+    decay: 0.016 + Math.random()*0.014
+  });
+}
+
+function loop() {
+  requestAnimationFrame(loop);
+  tick++;
+  drawStatic();
+  for (const s of stars) {
+    s.phase += s.speed;
+    const a = s.baseAlpha * (0.5 + 0.5*Math.sin(s.phase));
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+    ctx.fillStyle = s.color === 'b' ? `rgba(180,210,255,${a})` : s.color === 'w' ? `rgba(255,238,195,${a})` : `rgba(255,255,255,${a})`;
+    ctx.fill();
+    if (s.r > 1.3) {
+      const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r*4.5);
+      g.addColorStop(0, `rgba(200,220,255,${a*0.15})`);
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r*4.5, 0, Math.PI*2);
+      ctx.fillStyle = g;
+      ctx.fill();
+    }
+  }
+  if (tick % 70 === 0 && shoots.length < 5) spawnShoot();
+  for (let i = shoots.length-1; i >= 0; i--) {
+    const s = shoots[i];
+    const spd = Math.sqrt(s.vx*s.vx + s.vy*s.vy);
+    const ux = s.vx/spd, uy = s.vy/spd;
+    const g = ctx.createLinearGradient(s.x, s.y, s.x-ux*s.len, s.y-uy*s.len);
+    g.addColorStop(0,    `rgba(255,255,255,${s.life})`);
+    g.addColorStop(0.12, `rgba(210,230,255,${s.life*0.75})`);
+    g.addColorStop(0.45, `rgba(160,195,255,${s.life*0.28})`);
+    g.addColorStop(1,    'rgba(0,0,0,0)');
+    ctx.beginPath();
+    ctx.moveTo(s.x, s.y);
+    ctx.lineTo(s.x-ux*s.len, s.y-uy*s.len);
+    ctx.strokeStyle = g;
+    ctx.lineWidth = 1.3;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+    const pg = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 3.5);
+    pg.addColorStop(0, `rgba(255,255,255,${s.life})`);
+    pg.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, 3.5, 0, Math.PI*2);
+    ctx.fillStyle = pg;
+    ctx.fill();
+    s.x += s.vx;
+    s.y += s.vy;
+    s.life -= s.decay;
+    if (s.life <= 0 || s.x > W+200 || s.y > H+200) shoots.splice(i, 1);
+  }
+}
+
+window.addEventListener('resize', () => { resize(); initStars(); });
+resize();
+initStars();
+setTimeout(spawnShoot, 500);
+setTimeout(spawnShoot, 2000);
+setTimeout(spawnShoot, 3800);
+loop();
+</script>
+</body>
+</html>
